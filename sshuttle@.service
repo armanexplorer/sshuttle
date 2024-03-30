@@ -1,0 +1,17 @@
+# https://sshuttle.readthedocs.io/en/stable/requirements.html#additional-suggested-software
+
+[Unit]
+Description=sshuttle vpn for %i
+After=network.target
+
+[Service]
+Type=notify
+ExecStart=sshuttle -vHr %i 0.0.0.0/0 --dns --no-latency-control
+Restart=on-abort
+RestartSec=10
+KillSignal=SIGINT
+KillMode=mixed
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target
