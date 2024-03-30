@@ -28,13 +28,13 @@ sudo chmod u+x /usr/local/bin/vpn
 # Run
 To start vpn:
 ```bash
-vpn <user>@<server>
+sudo vpn <user>@<server>
 ```
-You can also use `~/.ssh/config` file to define alias names instead of `<user>@<server>`.
+You can also use `/root/.ssh/config` file to define alias names instead of `<user>@<server>`.
 
-**Note**: The controller script (`vpn`) only allows for one active VPN. You can change it with disabling the `if` condition in the `vpn.sh` before installing it.  
+**Note**: The controller script (`vpn`) only allows for one active VPN. You can change it with disabling the `if` condition in the `vpn.sh` before installing it. 
 
 To stop the currently active vpn simply run:
 ```bash
-vpn off
+sudo vpn off
 ``` 
