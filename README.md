@@ -34,7 +34,13 @@ You can also use `/root/.ssh/config` file to define alias names instead of `<use
 
 **Note**: The controller script (`vpn`) only allows for one active VPN. You can change it with disabling the `if` condition in the `vpn.sh` before installing it. 
 
-To stop the currently active vpn simply run:
+To stop the all VPNs activated using this tool, simply run:
 ```bash
 sudo vpn off
-``` 
+```
+
+# Troubleshoot
+
+You can check logs using `sudo journalctl -xeu "sshuttle@<user>@<server>.service"`.
+
+In case of `Host key authentication failed` error in the logs, you can add `--ssh-cmd "ssh -i /home/user/.ssh/custom_id"` flag to the `sshuttle@.service` file and run `sudo systemctl daemon-reload`. Using this, you will specify the full path to your custom SSH key, instead of using the default one.
