@@ -6,7 +6,7 @@ After=network.target
 
 [Service]
 Type=notify
-ExecStart=sshuttle --ssh-cmd "ssh -i SSH_CUSTOM_KEY_PATH" -vHr %i 0.0.0.0/0 --dns --no-latency-control
+ExecStart=sshuttle --ssh-cmd "ssh -i SSH_CUSTOM_KEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -vHr %i 0.0.0.0/0 --dns --no-latency-control
 Restart=on-abort
 RestartSec=10
 KillSignal=SIGINT
